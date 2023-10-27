@@ -14,10 +14,12 @@ const crearUsuario = async (req, res = response) => {
         let usuario = await Usuario.findOne({ email });
 
         if (usuario) {
-            return res.status(400).json({
+
+            res.status(400).json({
                 ok: true,
                 msg: 'ERROR: Correo ya existe',
             });
+            return;
         }
 
         usuario = new Usuario(req.body);
@@ -40,7 +42,7 @@ const crearUsuario = async (req, res = response) => {
 
 
     } catch (error) {
-        console.log(error)
+        console.log(error);
         res.status(500).json({
             ok: false,
             msg: 'ERROR: Ocurrio un error al crear usuario',
@@ -106,6 +108,8 @@ const revalidadToken = async (req, res = response) => {
 
     res.json({
         ok: true,
+        uid,
+        name,
         token
 
     })

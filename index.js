@@ -26,7 +26,7 @@ app.use(express.json());
 app.use('/api/auth', require('./src/routes/auth.routes'));
 app.use('/api/events', require('./src/routes/events.routes'));
 
-app.get('*', (req, rest) => {
+app.get('*', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 })
 //3.- Escuchar peticones

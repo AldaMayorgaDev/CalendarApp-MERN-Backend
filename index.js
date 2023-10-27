@@ -24,7 +24,11 @@ app.use(express.static('public'))
 app.use(express.json());
 //Rutas
 app.use('/api/auth', require('./src/routes/auth.routes'));
-app.use('/api/events', require('./src/routes/events.routes'))
+app.use('/api/events', require('./src/routes/events.routes'));
+
+app.get('*', (req, rest) => {
+    res.sendFile(__dirname + '/public/index.html');
+})
 //3.- Escuchar peticones
 
 app.listen(PORT, () => {

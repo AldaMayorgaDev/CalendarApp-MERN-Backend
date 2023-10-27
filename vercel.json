@@ -16,10 +16,7 @@
 		{
 			"src": "/(.+)",
 			"dest": "public/$1"
-		},
-		{
-			"src": "*",
-			"dest": "public/index.html"
 		}
-	]
+	],
+	"rewrites": [{ "source": "*", "destination": "public/index.html" }]
 }
